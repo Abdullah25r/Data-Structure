@@ -1,8 +1,12 @@
 package com.abdullah.LinkedList;
 
 public class DLL {
-    Node head = null;
-    Node tail = null;
+    Node head;
+    Node tail;
+    public DLL(){
+        head = null;
+        tail = null;
+    }
     int size = 0;
     public void insertFirst(int val){
         Node newNode = new Node(val);
