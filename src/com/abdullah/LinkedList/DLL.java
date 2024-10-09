@@ -53,7 +53,52 @@ public class DLL {
         temp.next = newNode;
         newNode.prev = temp;
     }
-
+    public int deleteFirst(){
+        if(head == null){
+            System.out.println("List is empty.");
+            return -1;
+        }
+        size--;
+        int val = head.data;
+        head = head.next;
+        head.prev = null;
+        return val;
+    }
+    public int deleteLast(){
+        if(head == null){
+            System.out.println("List is empty.");
+            return -1;
+        }
+        int val = tail.data;
+        //this is intellisense
+//        tail = tail.prev;
+//        tail.next = null;
+        // this is my logic
+        size--;
+        tail.prev.next = null;
+        tail = tail.prev;
+        return val;
+    }
+    public int deleteAt(int index){
+        if(index == 1){
+            return deleteFirst();
+        }
+        if(index == size){
+            return deleteLast();
+        }
+        if(index < 0 || index > size){
+            System.out.println("invalid index");
+            return -1;
+        }
+        Node temp = head;
+        for(int i = 0; i < index-1; i++){
+            temp = temp.next;
+        }
+        int val = temp.data;
+        temp.next.prev = temp.prev;
+        temp.prev.next = temp.next;
+        return val;
+    }
 
 
 

@@ -13,5 +13,12 @@ public class DLLMain {
 //        dll.displayRev();
         dll.insertAt(2, 0);
         dll.display();
+        System.out.println(dll.deleteFirst());
+        dll.display();
+        System.out.println(dll.deleteLast());
+        dll.display();
+        System.out.println(dll.deleteAt(1));
+        dll.display();
+        System.out.println(dll.size);
     }
 }
