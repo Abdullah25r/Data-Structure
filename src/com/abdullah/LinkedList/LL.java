@@ -122,7 +122,7 @@ public class LL {
 
 
 
-    private class Node{
+     class Node{
         int data;
         Node next;
         public Node(int data){
