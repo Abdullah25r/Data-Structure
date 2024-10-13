@@ -1,5 +1,7 @@
 package com.abdullah.LinkedList;
 
+import java.util.ArrayList;
+
 public class MergeTwo {
     LL ll1 = new LL();
     LL ll2 = new LL();
@@ -31,10 +33,27 @@ public class MergeTwo {
         }
         return result;
     }
+    public ArrayList<Integer> findUnion(){
 
+        ArrayList<Integer> output = new ArrayList<>();
+        for(int i: list1){
+            if(!output.contains(i)){
+                output.add(i);
+            }
+        }
+        for(int j: list1){
+            if(!output.contains(j)){
+                output.add(j);
+            }
+        }
+        return output;
+    }
     public static void main(String[] args) {
         MergeTwo output = new MergeTwo();
         output.commonElement().display();
+        System.out.println();
+        System.out.println(output.findUnion());
+
     }
 
 }
