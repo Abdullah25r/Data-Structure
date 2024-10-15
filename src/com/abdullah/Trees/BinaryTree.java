@@ -3,7 +3,7 @@ package com.abdullah.Trees;
 import java.util.Scanner;
 
 public class BinaryTree {
-    private Node root;
+     Node root;
     public BinaryTree() {}
     public void populate(Scanner scanner) {
         System.out.print("Enter the root Node: ");
@@ -25,6 +25,27 @@ public class BinaryTree {
             node.right = new Node(scanner.nextInt());
             populate(scanner, node.right);
         }
+    }
+    public void autoPopulate(int val){
+        root = autoPopulate(root,val);
+    }
+    public Node autoPopulate(Node node ,int val){
+        if(node == null){
+            return new Node(val);
+        }
+        if(val<node.data){
+            node.left = autoPopulate(node.left,val);
+        }
+        if(val>node.data){
+            node.right = autoPopulate(node.right,val);
+        }
+        return node;
+    }
+    public void inOrder(Node root){
+        if(root == null) return;
+        inOrder(root.left);
+        System.out.print(root.data + "-->");
+        inOrder(root.right);
     }
     public void display() {
         display(this.root, "");
