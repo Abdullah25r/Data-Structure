@@ -1,6 +1,9 @@
 package com.abdullah.Trees;
 
+import com.abdullah.Stack.CustomStack;
+
 import java.util.Scanner;
+import java.util.Stack;
 
 public class BinaryTree {
      Node root;
@@ -47,6 +50,45 @@ public class BinaryTree {
         System.out.print(root.data + "-->");
         inOrder(root.right);
     }
+    public void postOrder(Node root){
+        if(root == null) return;
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.data + "-->");
+    }
+    public void preOrder(Node root){
+        if(root == null) return;
+        System.out.print(root.data + "-->");
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+    public void iterativePostOrder() throws Exception {
+        iterativePostOrder(root);
+    }
+    public void iterativePostOrder(Node root) throws Exception {
+        Node temp = root;
+        Node lastVisited = null;
+        Stack<Node> stack = new Stack<Node>();
+        while(!stack.isEmpty() || temp != null){
+            if(temp != null){
+                stack.push(temp);
+                temp = temp.left;
+            }else{
+                Node peek = stack.peek();
+                if(peek.right != null && lastVisited != peek.right){
+                    temp = peek.right;
+                }else {
+                    System.out.print(peek.data + " ");
+                    lastVisited = stack.pop();
+                }
+            }
+        }
+
+
+    }
+
+
+
     public void display() {
         display(this.root, "");
     }

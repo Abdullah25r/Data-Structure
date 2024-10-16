@@ -3,7 +3,7 @@ package com.abdullah.Trees;
 import java.util.Scanner;
 
 public class BTMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         BinaryTree bt = new BinaryTree();
 //        bt.populate(new Scanner(System.in));
 //        bt.prettyDisplay();
@@ -11,7 +11,12 @@ public class BTMain {
           for(int e: arr){
               bt.autoPopulate(e);
           }
-
-          bt.inOrder(bt.root);
+//        bt.prettyDisplay();
+//          bt.inOrder(bt.root);
+//          System.out.println();
+//          bt.preOrder(bt.root);
+//          System.out.println();
+//          bt.postOrder(bt.root);
+        bt.iterativePostOrder();
     }
 }
