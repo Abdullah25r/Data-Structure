@@ -1,9 +1,13 @@
 package com.abdullah.Trees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 public class BST {
      Node root;
     public BST() {}
-    // iterative algorithms
+    // iterative algorithm
     public void insert(int val) {
         if(root == null){
             root = new Node(val);
@@ -29,6 +33,30 @@ public class BST {
 
         }
     }
+    public int minTerm(){
+        if(root == null){
+            return Integer.MAX_VALUE;
+        }
+        int min = Integer.MAX_VALUE;
+        Node current = root;
+        while(current != null){
+            min = Math.min(min, current.data);
+            current = current.left;
+        }
+        return min;
+    }
+    public int maxTerm(){
+        if(root == null){
+            return Integer.MIN_VALUE;
+        }
+        int max = Integer.MIN_VALUE;
+        Node current = root;
+        while(current != null){
+            max = Math.max(max, current.data);
+            current = current.right;
+        }
+        return max;
+    }
     public void postOrder(Node root){
         if(root == null) return;
         postOrder(root.left);
@@ -47,73 +75,42 @@ public class BST {
         System.out.print(root.data + "-->");
         inOrder(root.right);
     }
+    public void BFS(Node root){
 
-    public void display() {
-        int height = getHeight(root);
-        printTree(root, 0, height);
-    }
-
-    private int getHeight(Node root) {
-        if (root == null) {
-            return 0;
+        if(root == null) return;
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            Node node = queue.poll();
+            System.out.print(node.data + "-->");
+            if(node.left != null){
+                queue.add(node.left);
+            }
+            if(node.right != null){
+                queue.add(node.right);
+            }
         }
-        return 1 + Math.max(getHeight(root.left), getHeight(root.right));
     }
+    public void DFS(Node root){
+        if(root == null) return;
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            Node node = stack.pop();
+            System.out.print(node.data + "-->");
+            if(node.right != null){
+                stack.push(node.right);
+            }
+            if(node.left != null){
+                stack.push(node.left);
+            }
 
-    private void printTree(Node node, int level, int height) {
-        if (node == null) {
-            return;
-        }
-
-        int nodesInLevel = (int) Math.pow(2, level);
-        int spacesBetween = (int) Math.pow(2, height - level + 1) - 1;
-        int spacesBefore = (int) Math.pow(2, height - level) - 1;
-
-        // Print leading spaces for the current level
-        printSpaces(spacesBefore);
-
-        // Print nodes in the current level
-        printLevelNodes(node, spacesBetween);
-
-        System.out.println();
-
-        // Print branches (slashes) for the current level
-        if (level < height - 1) {
-            printBranches(node, spacesBefore, spacesBetween);
-        }
-
-        // Recursively print the left and right subtrees
-        printTree(node.left, level + 1, height);
-        printTree(node.right, level + 1, height);
-    }
-
-    private void printLevelNodes(Node node, int spacesBetween) {
-        if (node == null) {
-            return;
-        }
-        System.out.print(node.data);
-        printSpaces(spacesBetween);
-    }
-
-    private void printBranches(Node node, int spacesBefore, int spacesBetween) {
-        if (node == null) {
-            return;
-        }
-        printSpaces(spacesBefore);
-        System.out.print('/');
-        printSpaces(spacesBetween);
-        System.out.print('\\');
-        System.out.println();
-    }
-
-    private void printSpaces(int count) {
-        for (int i = 0; i < count; i++) {
-            System.out.print(" ");
         }
     }
 
 
-    private class Node{
+
+    private static class Node{
         int data;
         Node left, right;
         public Node(int data) {

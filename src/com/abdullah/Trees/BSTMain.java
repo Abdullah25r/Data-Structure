@@ -12,6 +12,12 @@ public class BSTMain {
         bst.preOrder(bst.root);
         System.out.println();
         bst.postOrder(bst.root);
+        System.out.println();
+        System.out.println("MIN VALUE: "+bst.minTerm());
+        System.out.println("Max VALUE: "+bst.maxTerm());
+        bst.BFS(bst.root);
+        System.out.println();
+        bst.DFS(bst.root);
 
     }
 }
