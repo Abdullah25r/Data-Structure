@@ -47,6 +47,18 @@ public class LL {
             temp = temp.next;
         }
     }
+    public void insertRec(int value, int index) {
+        head = insertRec(value, index, head);
+    }
+    public Node insertRec(int value, int index, Node node) {
+        if (index == 0) {
+            Node newNode = new Node(value, node);
+            size++;
+            return newNode;
+        }
+        node.next = insertRec(value, index - 1, node.next);
+        return node;
+    }
     public int deleteFirst(){
         if (head == null) {
             return -1;
@@ -127,6 +139,10 @@ public class LL {
         Node next;
         public Node(int data){
             this.data = data;
+        }
+        public Node(int data, Node node){
+            this.data = data;
+            this.next = node;
         }
 
     }

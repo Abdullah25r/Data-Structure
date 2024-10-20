@@ -1,4 +1,4 @@
-package com.abdullah.Airpot;
+package com.abdullah.AirportSystem;
 
 public class Main {
     public static void main(String[] args) throws Exception {

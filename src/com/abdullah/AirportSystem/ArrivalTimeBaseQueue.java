@@ -1,4 +1,4 @@
-package com.abdullah.Airpot;
+package com.abdullah.AirportSystem;
 
 public class ArrivalTimeBaseQueue  {
     // I am using array approach to implement it

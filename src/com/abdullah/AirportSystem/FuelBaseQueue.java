@@ -1,4 +1,4 @@
-package com.abdullah.Airpot;
+package com.abdullah.AirportSystem;
 
 import java.util.ArrayList;
 
