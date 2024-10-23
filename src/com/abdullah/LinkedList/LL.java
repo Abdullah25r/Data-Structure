@@ -59,6 +59,16 @@ public class LL {
         node.next = insertRec(value, index - 1, node.next);
         return node;
     }
+    public Node findMid(){
+        Node fast= head;
+        Node slow = head;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
     public int deleteFirst(){
         if (head == null) {
             return -1;

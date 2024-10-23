@@ -18,5 +18,8 @@ public class LLMain {
         System.out.println("\nRecursively displaying list");
         list.insertRec(9, 2);
         list.display();
+        System.out.println();
+        System.out.println(list.findMid().data);
+
     }
 }
