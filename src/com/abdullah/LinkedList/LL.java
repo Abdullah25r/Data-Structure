@@ -128,6 +128,19 @@ public class LL {
         return data;
 
     }
+    void reverse(){
+        reverse(head);
+    }
+    public void reverse(Node node){
+        if(node == tail){
+            head = tail;
+            return;
+        }
+        reverse(node.next);
+        tail.next = node;
+        tail = node;
+        tail.next = null;
+    }
     public void display(){
         if (head == null) {
             System.out.println("List is empty");

@@ -19,7 +19,9 @@ public class LLMain {
         list.insertRec(9, 2);
         list.display();
         System.out.println();
-        System.out.println(list.findMid().data);
+//        System.out.println(list.findMid().data);
+        list.reverse();
+            list.display();
 
     }
 }
