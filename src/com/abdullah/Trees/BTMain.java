@@ -17,6 +17,8 @@ public class BTMain {
 //          bt.preOrder(bt.root);
 //          System.out.println();
 //          bt.postOrder(bt.root);
-        bt.iterativePostOrder();
+//        bt.iterativePostOrder();
+        bt.prettyDisplay();
+
     }
 }
