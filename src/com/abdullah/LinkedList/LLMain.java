@@ -14,13 +14,15 @@ public class LLMain {
 //        list.display();
 //        System.out.println();
 //        list.insertAt(2,2);
-        list.display();
-        System.out.println("\nRecursively displaying list");
-        list.insertRec(9, 2);
+//        list.display();
+//        System.out.println("\nRecursively displaying list");
+//        list.insertRec(9, 2);
+//        list.display();
+//        System.out.println();
+//        System.out.println(list.findMid().data);
         list.display();
         System.out.println();
-//        System.out.println(list.findMid().data);
-        list.reverse();
+            list.reverse();
             list.display();
 
     }

@@ -47,6 +47,24 @@ public class LL {
             temp = temp.next;
         }
     }
+    // 1 2 3 4 5
+    public void reverse(){
+        head = reverse(head);
+    }
+    private Node reverse(Node head){
+        Node prev = null;
+        Node next = null;
+        Node current = head;
+        while(current!= null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+    return prev;
+    }
+
+
     public void insertRec(int value, int index) {
         head = insertRec(value, index, head);
     }
@@ -59,6 +77,7 @@ public class LL {
         node.next = insertRec(value, index - 1, node.next);
         return node;
     }
+    // fast slow pointer method
     public Node findMid(){
         Node fast= head;
         Node slow = head;
@@ -128,15 +147,15 @@ public class LL {
         return data;
 
     }
-    void reverse(){
-        reverse(head);
+    void reverseRec(){
+        reverseRec(head);
     }
-    public void reverse(Node node){
+    public void reverseRec(Node node){
         if(node == tail){
             head = tail;
             return;
         }
-        reverse(node.next);
+        reverseRec(node.next);
         tail.next = node;
         tail = node;
         tail.next = null;
